@@ -1,0 +1,42 @@
+.main-login{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.main-login > form {
+    height: 50vh;
+    width: 30vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2vh;
+    box-shadow: 5px 5px 10px black;
+}
+.main-login > form > h2 {
+    font-size: xx-large;
+    margin-bottom: 3vh;
+    /* background-color: lightgray;
+    width: 30vw; */
+}
+.login-info  {
+    height: 5vh;
+    width: 20vw;
+    padding-left: 1vw;
+}
+.main-login > form > button {
+    height: 5vh;
+    width: 21.2vw;
+    background-color: blueviolet;
+    border: 0;
+    color: white;
+    margin-top: 3vh;
+    &:hover {
+        opacity: .75;
+    }
+    &:active {
+        background-color: #7500e3;
+    }
+}
