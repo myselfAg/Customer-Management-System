@@ -11,7 +11,7 @@ const db = mysql.createConnection({
   user: "root",
   password: "",
   database: "master",
-})
+});
 
 // ++++++++++++++++ To put the data into the 8081 port +++++++++++++++++++
 app.get("/", (req, res) => {
