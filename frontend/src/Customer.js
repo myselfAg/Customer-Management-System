@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import './cssFolder/Customer.css';
+// import './cssFolder/Customer.css';
 
 export default function Customer() {
   const [data, setData] = useState([]);
@@ -36,9 +36,9 @@ export default function Customer() {
                   <td>{item.name}</td>
                   <td>{item.amount}</td>
                   <td className="btns">
-                    <Link to={`/read/${item.id}`}>Read</Link>
-                    <button className="edit-btn">Edit</button>
-                    <button className="delete-btn">Delete</button>
+                    <Link to={`/read/${item.id}`}>📖</Link>
+                    <button className="edit-btn">📝</button>
+                    <button className="delete-btn">❌</button>
                   </td>
                 </tr>
               ))}

@@ -1,18 +1,20 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import './cssFolder/Create.css';
+// import "./cssFolder/Create.css";
 function Create() {
   const [values, setValues] = useState({
     name: "",
     amount: 0,
   });
-
+  const navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
       .post("http://localhost:8081/customer", values)
       .then((res) => console.log(res))
       .catch((err) => console.log(err));
+    navigate("/customer");
   };
 
   return (
@@ -26,9 +28,7 @@ function Create() {
               placeholder="Enter Name"
               className="form-control"
               name="name"
-              onChange={(e) =>
-                setValues({ ...values, name: e.target.value })
-              }
+              onChange={(e) => setValues({ ...values, name: e.target.value })}
             />
           </div>
 

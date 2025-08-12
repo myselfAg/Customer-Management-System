@@ -11,7 +11,7 @@ const db = mysql.createConnection({
   user: "root",
   password: "",
   database: "master",
-})
+});
 
 // ++++++++++++++++ To put the data into the 8081 port +++++++++++++++++++
 app.get("/", (req, res) => {
@@ -23,18 +23,22 @@ app.get("/", (req, res) => {
   });
 });
 
-// wait
-app.get("/login", (req, res) => {
-  const sql = "select * from signup where username = ?";
-  const values = [req.body.username];
-  console.log(values);
-  db.query(sql, (err, data) => {
-    if (err) return res.json("Error");
-    return res.json(data);
+// +++++++++++++++++++++++++++ login +++++++++++++++++++++++++++++++++
+app.post("/login", (req, res) => {
+  const sql = "select * from signup where username = ? AND password = ?";
+  const values = [req.body.username, req.body.password];
+  db.query(sql, values, (err, data) => {
+    if (err) return res.status(500).json({ error: "Database error" });
+
+    if (data.length > 0) {  
+      res.json({ success: true, user: data[0] });
+    } else {
+      res.json({ success: false, message: "Invalid username or password" });
+    }
   });
 });
-// +++++++++++++++++++ Insert data into the database (Create.js) ++++++++++++++++++++++
 
+// +++++++++++++++++++ Insert data into the database (Create.js) ++++++++++++++++++++++
 app.post("/customer", (req, res) => {
   fetch("http://localhost:8081/")
     .then((data) => {
@@ -57,15 +61,32 @@ app.post("/customer", (req, res) => {
     });
 });
 
-app.get('/read/:id', (req, res) => {
+// ++++++++++++++++++++ Read link +++++++++++++++++++++++++++
+app.get("/read/:id", (req, res) => {
   const sql = "select * from customer where id = ?";
   const id = req.params.id;
 
   db.query(sql, [id], (err, data) => {
-    if(err) return res.json("Error");
+    if (err) return res.json("Error");
     return res.json(data);
   });
 });
+
+
+// ++++++++++++++++++++++++++++++ update button ++++++++++++++++++++++++++++++++
+app.put('/update/:id', (req, res) => {
+  const id = req.params.id;
+  const values = req.body;
+
+  const sql = "update customer set ? where id = ?"
+  db.query(sql, [values, id], (err, result) => {
+    if(err) {
+      console.log(err);
+      return res.status(500).json({error: "Database update failed"})
+    }
+    res.json({message: "Record updated successfully", result})
+  })
+})
 
 // ++++++++++++++ Listening to the port +++++++++++++++
 app.listen(8081, () => {

@@ -1,16 +1,13 @@
-import React from 'react'
-// import { useNavigate } from 'react-router-dom'
+import { Outlet } from "react-router-dom"
+import Header from "./components/Header"
 
 export default function Home() {
 
-    // const navigate = useNavigate()
-    // function goToCustomer() {
-    //     navigate('/customer')
-    // }
+    
     return (
         <>
-            <h1>Hello World!</h1>
-            {/* <button onClick={goToCustomer}>Customer</button> */}
+            <Header/>
+            <Outlet/>
         </>
     )
 }
