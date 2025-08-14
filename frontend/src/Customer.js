@@ -13,6 +13,7 @@ export default function Customer() {
       .then((res) => setData(res.data))
       .catch((err) => console.log(err));
   }, []);
+  
   return (
     <div className="h-screen w-screen flex">
       <div className="h-screen w-1/12 shadow-xl"></div>
