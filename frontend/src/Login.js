@@ -13,8 +13,6 @@ function Login() {
   const navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
-              navigate("/customer");
-  
     axios
       .post("http://localhost:8081/login", values)
       .then((res) => {
@@ -38,12 +36,12 @@ function Login() {
           <img
             src={bg}
             alt="bg"
-            className="h-full w-full object-cover object-left"
+            className="h-full w-full object-cover object-left "
           />
-          <div className="absolute inset-y-0 right-0 w-2 bg-gradient-to-l from-white to-transparent"></div>
+          <div className="absolute inset-y-0 right-0 w-1/2 bg-gradient-to-r from-transparent via-white/60 to-white"></div>
         </div>
         <form className="relative bg-white h-screen w-1/2 flex flex-col justify-center items-center gap-5 ">
-          <h2 className="text-5xl font-bold">Login</h2>
+          <h2 className="text-5xl font-bold animate-pulse">Login</h2>
           <div className="">
             <div className="flex flex-col gap-5 mb-5 mt-5">
               <input

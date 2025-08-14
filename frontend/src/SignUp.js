@@ -1,37 +1,41 @@
 import React from "react";
 // import './cssFolder/Login.css';
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import bg from "./images/c.jpg";
 
 function Login() {
   const [values, setValues] = useState({
-    name: "",
-    amount: 0,
+    username: "",
+    password: "",
   });
 
-  const handleSubmit = (e) => {
+  const navigate = useNavigate()
+
+ const handleSubmit = (e) => {
     e.preventDefault();
     axios
       .post("http://localhost:8081/customer", values)
       .then((res) => console.log(res))
       .catch((err) => console.log(err));
+    navigate("/customer");
   };
   return (
     <>
-      <div
-        className="h-screen w-screen flex justify-center items-center"
-        onSubmit={handleSubmit}
-      >
+      <div className="h-screen w-screen flex justify-center items-center">
         <div className="relative h-screen w-2/3 overflow-hidden">
           <img
             src={bg}
             alt="bg"
             className="h-full w-full object-cover object-left"
           />
-          <div className="absolute inset-y-0 right-0 w-2 bg-gradient-to-l from-white to-transparent"></div>
+          <div className="absolute inset-y-0 right-0 w-1/2 bg-gradient-to-r from-transparent via-white/60 to-white"></div>
         </div>
-        <form className="relative bg-white h-screen w-1/2 flex flex-col justify-center items-center gap-5 ">
+        <form
+          onSubmit={handleSubmit}
+          className="relative bg-white h-screen w-1/2 flex flex-col justify-center items-center gap-5 "
+        >
           <h2 className="text-5xl font-bold">Sign Up</h2>
           <div className="flex flex-col gap-5 mb-5 mt-5">
             <input

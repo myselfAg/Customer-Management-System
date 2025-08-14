@@ -14,22 +14,23 @@ export default function Customer() {
       .catch((err) => console.log(err));
   }, []);
   return (
-    <div className="body">
-      {/* <button onClick={goToHome}>Home</button> */}
-      <div className="main">
-        <h2>Customer Data</h2>
-        <div className="datas">
-          <table>
-            <thead>
-              <tr>
-                <th>ID</th>
+    <div className="h-screen w-screen flex">
+      <div className="h-screen w-1/12 shadow-xl"></div>
+      <div className="w-11/12">
+        <div className="w-full h-14  shadow-lg "></div>
+        <h2 className="">Customer Data</h2>
+        <div className="">
+          <table className="table-fixed text-center ">
+            <thead className="">
+              <tr className="">
+                <th>Customer ID</th>
                 <th>Name</th>
                 <th>Amount</th>
                 <th>Action</th>
               </tr>
             </thead>
 
-            <tbody>
+            <tbody className="">
               {data.map((item, index) => (
                 <tr key={index}>
                   <td>{item.id}</td>
