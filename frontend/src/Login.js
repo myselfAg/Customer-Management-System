@@ -3,7 +3,7 @@ import React from "react";
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
-import bg from "./images/c.jpg";
+import bg from "./images/a.jpg";
 function Login() {
   const [values, setValues] = useState({
     username: "",
@@ -69,14 +69,14 @@ function Login() {
             <div className="">
               <p>
                 Don't have an account?{" "}
-                <Link to={"/signup"} className="text-orange-700 font-bold">
+                <Link to={"/signup"} className="text-cyan-700 font-bold">
                   Sign Up
                 </Link>
               </p>
 
               <button
                 type="submit"
-                className="bg-orange-400 text-white h-10 w-96 text-sm mt-2"
+                className="bg-cyan-700 text-white h-10 w-96 text-sm mt-2"
               >
                 Login
               </button>

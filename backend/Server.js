@@ -104,6 +104,22 @@ app.put('/update/:id', (req, res) => {
   })
 })
 
+// ++++++++++++++++++++++++++++++ delete button ++++++++++++++++++++++++++++++++
+app.delete('/read/:id', (req, res) => {
+
+  const id = req.params.id;
+  const  sql = "delete from customer where id = ?"
+
+  db.query(sql, id, (err, result) => {
+    if(err) {
+      console.log(err);
+      return res.json({error: "Database Deletation Failed"})
+    }  
+    return res.json("Deleted Successfully")
+
+  })
+})
+
 // ++++++++++++++ Listening to the port +++++++++++++++
 app.listen(8081, () => {
   console.log("Listening..");

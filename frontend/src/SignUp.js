@@ -3,7 +3,7 @@ import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import bg from "./images/c.jpg";
+import bg from "./images/a.jpg";
 
 function Login() {
   const [values, setValues] = useState({
@@ -57,7 +57,7 @@ function Login() {
 
           <button
             type="submit"
-            className="bg-orange-400 text-white h-10 w-96 text-sm"
+            className="bg-cyan-700 text-white h-10 w-96 text-sm"
           >
             Signup
           </button>
