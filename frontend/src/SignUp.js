@@ -16,10 +16,10 @@ function Login() {
  const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:8081/customer", values)
+      .post("http://localhost:8081/signup", values)
       .then((res) => console.log(res))
       .catch((err) => console.log(err));
-    navigate("/customer");
+    navigate("/login"); 
   };
   return (
     <>
@@ -43,7 +43,7 @@ function Login() {
               placeholder="Username"
               className="h-10 w-96 pl-2 border border-black text-sm"
               name="username"
-              onChange={(e) => setValues({ ...values, name: e.target.value })}
+              onChange={(e) => setValues({ ...values, username: e.target.value })}
             />
 
             <input
@@ -51,7 +51,7 @@ function Login() {
               placeholder="Password"
               className="h-10 w-96 pl-2 border border-black text-sm"
               name="password"
-              onChange={(e) => setValues({ ...values, name: e.target.value })}
+              onChange={(e) => setValues({ ...values, password: e.target.value })}
             />
           </div>
 

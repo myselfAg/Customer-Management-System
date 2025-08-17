@@ -58,21 +58,21 @@ app.post("/customer", (req, res) => {
     });
 });
 
-// app.post("/signup", (req, res) => {
-//   fetch("http://localhost:8081/")
-//     .then((data) => {
-//       return data.json();
-//     })
-//     .then((data) => {
-//       const sql = "INSERT INTO signup (username, password) VALUES(?)";
-//       const values = [req.body.username, req.body.password];
+app.post("/signup", (req, res) => {
+  // fetch("http://localhost:8081/")
+  //   .then((data) => {
+  //     return data.json();
+  //   })
+  //   .then((data) => {
+      const sql = "INSERT INTO signup (username, password) VALUES(?)";
+      const values = [req.body.username, req.body.password];
 
-//       db.query(sql, [values], (err, result) => {
-//         if (err) return res.json(err);
-//         return res.json(result);
-//       });
-//     });
-// });
+      db.query(sql, [values], (err, result) => {
+        if (err) return res.json(err);
+        return res.json(result);
+      });
+    // });
+});
 
 // ++++++++++++++++++++ Read link +++++++++++++++++++++++++++
 app.get("/read/:id", (req, res) => {

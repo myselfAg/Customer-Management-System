@@ -6,7 +6,7 @@ import Create from "./Create";
 import SignUp from "./SignUp";
 import Login from "./Login";
 import Read from "./Read";
-import Layout from "./Layout";
+// import Layout from "./Layout";
 function App() {
   return (
     <div>

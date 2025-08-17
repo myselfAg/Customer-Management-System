@@ -14,13 +14,13 @@ export default function Customer() {
 
   const goToHome = () => {
     navigate("/");
-  }
+  };
   const goToEmp = () => {
     navigate("/customer");
-  }
+  };
   const goToLogin = () => {
     navigate("/login");
-  }
+  };
 
   useEffect(() => {
     axios
@@ -35,10 +35,27 @@ export default function Customer() {
         <h1 className="font-bold text-3xl text-slate-200 pl-7">AgServices</h1>
         <div className="w-full pl-6 mt-14">
           <ul className="text-slate-300 w-3/4 font-semibold">
-            <li onClick={goToHome} className="mb-8 py-1 pl-4 rounded-lg transition duration-300 ease-in-out hover:text-slate-500 hover:opacity-30 hover:bg-white bg-gradient-to-l from-transparent via-white/30 cursor-pointer">Home</li>
-            <li onClick={goToEmp} className="mb-8 py-1 pl-4 rounded-lg transition duration-300 ease-in-out hover:text-slate-500 hover:opacity-30 hover:bg-white bg-gradient-to-l from-transparent via-white/30 cursor-pointer">Customer</li>
-            <li className="mb-8 py-1 pl-4 rounded-lg transition duration-300 ease-in-out hover:text-slate-500 hover:opacity-30 hover:bg-white bg-gradient-to-l from-transparent via-white/30 cursor-pointer">Works</li>
-            <li onClick={goToLogin} className="mb-8 py-1 pl-4 rounded-lg transition duration-300 ease-in-out hover:text-slate-500 hover:opacity-30 hover:bg-white bg-gradient-to-l from-transparent via-white/30 cursor-pointer">Logout</li>
+            <li
+              onClick={goToHome}
+              className="mb-8 py-1 pl-4 rounded-lg transition duration-300 ease-in-out hover:text-slate-500 hover:opacity-30 hover:bg-white bg-gradient-to-l from-transparent via-white/30 cursor-pointer"
+            >
+              Home
+            </li>
+            <li
+              onClick={goToEmp}
+              className="mb-8 py-1 pl-4 rounded-lg transition duration-300 ease-in-out hover:text-slate-500 hover:opacity-30 hover:bg-white bg-gradient-to-l from-transparent via-white/30 cursor-pointer"
+            >
+              Customer
+            </li>
+            <li className="mb-8 py-1 pl-4 rounded-lg transition duration-300 ease-in-out hover:text-slate-500 hover:opacity-30 hover:bg-white bg-gradient-to-l from-transparent via-white/30 cursor-pointer">
+              Works
+            </li>
+            <li
+              onClick={goToLogin}
+              className="mb-8 py-1 pl-4 rounded-lg transition duration-300 ease-in-out hover:text-slate-500 hover:opacity-30 hover:bg-white bg-gradient-to-l from-transparent via-white/30 cursor-pointer"
+            >
+              Logout
+            </li>
           </ul>
         </div>
       </div>
@@ -46,14 +63,12 @@ export default function Customer() {
         <div className="header w-full h-14 bg-white shadow-md flex justify-between items-center px-4">
           <h1 className="text-lg font-semibold">Customer </h1>
           <div className="flex items-center gap-2">
-
-          <div className="h-8 w-8 rounded-full overflow-hidden">
-          <img src={dp} alt="Profile Pic" className="object-cover" />
-          </div>
-          <p>agneesh@gmail.com</p>
+            <div className="h-8 w-8 rounded-full overflow-hidden">
+              <img src={dp} alt="Profile Pic" className="object-cover" />
+            </div>
+            <p>agneesh@gmail.com</p>
           </div>
         </div>
-
 
         <div className="h-14 w-11/12 flex justify-between items-center">
           <h2 className="text-2xl font-bold ml-4">Customer</h2>
@@ -65,10 +80,14 @@ export default function Customer() {
           </button>
         </div>
         <div className="searchSec h-24 w-11/12 bg-white shadow-[0_4px_10px_rgba(0,0,0,0.15)] rounded-2xl mt-4 flex items-center ">
-        <div className="w-1/2 flex flex-col gap-2 ml-6">
-        <p className="font-bold">What Are You Looking For?</p>
-        <input type="text" placeholder="Search" className="h-8 w-3/4 bg-zinc-100 rounded-md pl-4" />
-        </div>
+          <div className="w-1/2 flex flex-col gap-2 ml-6">
+            <p className="font-bold">What Are You Looking For?</p>
+            <input
+              type="text"
+              placeholder="Search"
+              className="h-8 w-3/4 bg-zinc-100 rounded-md pl-4"
+            />
+          </div>
         </div>
         <div className="bg-white flex justify-center h-[61vh] overflow-auto no-scrollbar rounded-3xl mt-8 w-11/12 shadow-[2px_2px_20px_rgba(0,0,0,0.15)]">
           <div className="">
@@ -85,7 +104,10 @@ export default function Customer() {
 
               <tbody className="">
                 {data.map((item, index) => (
-                  <tr key={index} className="border-b-2 h-14 hover:shadow-[0_0_8px_rgba(0,0,0,0.15)]"  >
+                  <tr
+                    key={index}
+                    className="border-b-2 h-14 hover:shadow-[0_0_8px_rgba(0,0,0,0.15)]"
+                  >
                     {/* onClick={() => goToView(item.id)} */}
                     <td className="">{item.id}</td>
                     <td>{item.name}</td>
@@ -93,8 +115,12 @@ export default function Customer() {
                     {/* <td> <button className="edit-btn">📝</button>
                     <button className="delete-btn">❌</button></td> */}
                     <td className="btns">
-                      <Link to={`/read/${item.id}`} className=" px-4 py-1 rounded-lg shadow-md transition duration-500 ease-in-out hover:bg-cyan-600 hover:text-white ">View →</Link>
-                     
+                      <Link
+                        to={`/read/${item.id}`}
+                        className=" px-4 py-1 rounded-lg shadow-md transition duration-500 ease-in-out hover:bg-cyan-600 hover:text-white "
+                      >
+                        View →
+                      </Link>
                     </td>
                   </tr>
                 ))}
@@ -102,8 +128,6 @@ export default function Customer() {
             </table>
           </div>
         </div>
-
-
       </div>
     </div>
   );
