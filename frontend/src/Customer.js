@@ -22,10 +22,6 @@ export default function Customer() {
     navigate("/login");
   }
 
-  // const goToView = (item) => {
-  //   navigate(`/read/${item}`)
-  // }
-
   useEffect(() => {
     axios
       .get("http://localhost:8081/")
@@ -40,7 +36,7 @@ export default function Customer() {
         <div className="w-full pl-6 mt-14">
           <ul className="text-slate-300 w-3/4 font-semibold">
             <li onClick={goToHome} className="mb-8 py-1 pl-4 rounded-lg transition duration-300 ease-in-out hover:text-slate-500 hover:opacity-30 hover:bg-white bg-gradient-to-l from-transparent via-white/30 cursor-pointer">Home</li>
-            <li onClick={goToEmp} className="mb-8 py-1 pl-4 rounded-lg transition duration-300 ease-in-out hover:text-slate-500 hover:opacity-30 hover:bg-white bg-gradient-to-l from-transparent via-white/30 cursor-pointer">Employee</li>
+            <li onClick={goToEmp} className="mb-8 py-1 pl-4 rounded-lg transition duration-300 ease-in-out hover:text-slate-500 hover:opacity-30 hover:bg-white bg-gradient-to-l from-transparent via-white/30 cursor-pointer">Customer</li>
             <li className="mb-8 py-1 pl-4 rounded-lg transition duration-300 ease-in-out hover:text-slate-500 hover:opacity-30 hover:bg-white bg-gradient-to-l from-transparent via-white/30 cursor-pointer">Works</li>
             <li onClick={goToLogin} className="mb-8 py-1 pl-4 rounded-lg transition duration-300 ease-in-out hover:text-slate-500 hover:opacity-30 hover:bg-white bg-gradient-to-l from-transparent via-white/30 cursor-pointer">Logout</li>
           </ul>
@@ -48,7 +44,7 @@ export default function Customer() {
       </div>
       <div className="main w-10/12 flex flex-col items-center">
         <div className="header w-full h-14 bg-white shadow-md flex justify-between items-center px-4">
-          <h1 className="text-lg font-semibold">Dashboard &gt; Employee </h1>
+          <h1 className="text-lg font-semibold">Customer </h1>
           <div className="flex items-center gap-2">
 
           <div className="h-8 w-8 rounded-full overflow-hidden">
@@ -57,8 +53,10 @@ export default function Customer() {
           <p>agneesh@gmail.com</p>
           </div>
         </div>
+
+
         <div className="h-14 w-11/12 flex justify-between items-center">
-          <h2 className="text-2xl font-bold ml-4">Employee</h2>
+          <h2 className="text-2xl font-bold ml-4">Customer</h2>
           <button
             className="addCus h-8 w-24 rounded-lg bg-cyan-600 font-semibold hover:bg-gradient-to-r from-transparent via-white/30 to-cyan-100 text-white mr-4 transition duration-500 ease-in-out shadow-[0_2px_7px_rgba(0,0,0,0.40)] hover:shadow-lg"
             onClick={addCustomer}
@@ -77,7 +75,7 @@ export default function Customer() {
             <table className="table-fixed text-center w-full">
               <thead className="">
                 <tr className="border-b-2 h-16 bg-slate-100">
-                  <th>Employee ID</th>
+                  <th>Customer ID</th>
                   <th>Name</th>
                   <th>Amount</th>
                   {/* <th>Actions</th> */}
@@ -104,6 +102,8 @@ export default function Customer() {
             </table>
           </div>
         </div>
+
+
       </div>
     </div>
   );

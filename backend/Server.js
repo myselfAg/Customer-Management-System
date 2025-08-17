@@ -1,16 +1,15 @@
 const express = require("express");
 const cors = require("cors");
-const mysql = require("mysql");
+const mysql = require("mysql2");
 const app = express();
 app.use(cors());
 app.use(express.json());
 
-// ++++++++++++ To connect with the Database ++++++++++++++++
 const db = mysql.createConnection({
   host: "localhost",
   user: "root",
-  password: "",
-  database: "master",
+  password: "Agneesh@My@Database25", 
+  database: "mydb",
 });
 
 // ++++++++++++++++ To put the data into the 8081 port +++++++++++++++++++
@@ -21,6 +20,7 @@ app.get("/", (req, res) => {
     if (err) return res.json("Error");
     return res.json(data);
   });
+
 });
 
 // +++++++++++++++++++++++++++ login +++++++++++++++++++++++++++++++++
@@ -45,12 +45,9 @@ app.post("/customer", (req, res) => {
       return data.json();
     })
     .then((data) => {
-      let latest_id = data[0].id;
-      console.log(latest_id);
 
-      latest_id = latest_id + 1;
-      console.log(latest_id);
-
+      let latest_id = data.length > 0 ? data[0].id + 1 : 1;
+      
       const sql = "INSERT INTO customer (id, name, amount) VALUES(?)";
       const values = [latest_id, req.body.name, req.body.amount];
 
@@ -90,7 +87,7 @@ app.get("/read/:id", (req, res) => {
 
 
 // ++++++++++++++++++++++++++++++ update button ++++++++++++++++++++++++++++++++
-app.put('/update/:id', (req, res) => {
+app.put('/read/:id', (req, res) => {
   const id = req.params.id;
   const values = req.body;
 
@@ -121,6 +118,9 @@ app.delete('/read/:id', (req, res) => {
 })
 
 // ++++++++++++++ Listening to the port +++++++++++++++
+// app.listen(8081, () => {
+//   console.log("Listening..");
+// });
 app.listen(8081, () => {
   console.log("Listening..");
 });
