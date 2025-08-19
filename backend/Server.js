@@ -59,11 +59,6 @@ app.post("/customer", (req, res) => {
 });
 
 app.post("/signup", (req, res) => {
-  // fetch("http://localhost:8081/")
-  //   .then((data) => {
-  //     return data.json();
-  //   })
-  //   .then((data) => {
       const sql = "INSERT INTO signup (username, password) VALUES(?)";
       const values = [req.body.username, req.body.password];
 
@@ -71,7 +66,6 @@ app.post("/signup", (req, res) => {
         if (err) return res.json(err);
         return res.json(result);
       });
-    // });
 });
 
 // ++++++++++++++++++++ Read link +++++++++++++++++++++++++++
@@ -118,9 +112,6 @@ app.delete('/read/:id', (req, res) => {
 })
 
 // ++++++++++++++ Listening to the port +++++++++++++++
-// app.listen(8081, () => {
-//   console.log("Listening..");
-// });
 app.listen(8081, () => {
   console.log("Listening..");
 });
