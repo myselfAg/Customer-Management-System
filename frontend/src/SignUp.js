@@ -15,15 +15,15 @@ function Login() {
     password: "",
   });
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
- const handleSubmit = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     axios
       .post("http://localhost:8081/signup", values)
       .then((res) => console.log(res))
       .catch((err) => console.log(err));
-    // navigate("/login"); 
+    navigate("/login");
   };
   return (
     <>
@@ -47,22 +47,19 @@ function Login() {
               placeholder="Firstname"
               className="h-10 w-96 pl-2 border border-black text-sm"
               name="firstname"
-              onChange={(e) => setValues({ ...values, firstname: e.target.value })}
+              onChange={(e) =>
+                setValues({ ...values, firstname: e.target.value })
+              }
             />
             <input
               type="text"
               placeholder="Lastname"
               className="h-10 w-96 pl-2 border border-black text-sm"
               name="lastname"
-              onChange={(e) => setValues({ ...values, lastname: e.target.value })}
+              onChange={(e) =>
+                setValues({ ...values, lastname: e.target.value })
+              }
             />
-            {/* <input
-              type="text"
-              placeholder="Date of Birth"
-              className="h-10 w-96 pl-2 border border-black text-sm"
-              name="dob"
-              onChange={(e) => setValues({ ...values, dob: e.target.value })}
-            /> */}
             <input
               type="text"
               placeholder="Email"
@@ -82,7 +79,9 @@ function Login() {
               placeholder="Username"
               className="h-10 w-96 pl-2 border border-black text-sm"
               name="username"
-              onChange={(e) => setValues({ ...values, username: e.target.value })}
+              onChange={(e) =>
+                setValues({ ...values, username: e.target.value })
+              }
             />
 
             <input
@@ -90,7 +89,9 @@ function Login() {
               placeholder="Password"
               className="h-10 w-96 pl-2 border border-black text-sm"
               name="password"
-              onChange={(e) => setValues({ ...values, password: e.target.value })}
+              onChange={(e) =>
+                setValues({ ...values, password: e.target.value })
+              }
             />
           </div>
 
