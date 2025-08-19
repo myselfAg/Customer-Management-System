@@ -1,5 +1,5 @@
-import Customer from "./Customer";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Customer from "./Customer";
 import Home from "./Home";
 import Create from "./Create";
 import SignUp from "./SignUp";
