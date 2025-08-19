@@ -117,16 +117,6 @@ const Read = () => {
               Save
             </button>
           </div>
-          {/* <div className="searchSec h-24 w-11/12 bg-white shadow-[0_4px_10px_rgba(0,0,0,0.15)] rounded-2xl mt-4 flex items-center ">
-            <div className="w-1/2 flex flex-col gap-2 ml-6">
-              <p className="font-bold">What Are You Looking For?</p>
-              <input
-                type="text"
-                placeholder="Search"
-                className="h-8 w-3/4 bg-zinc-100 rounded-md pl-4"
-              />
-            </div>
-          </div> */}
           <div className="bg-white flex justify-center items-center gap-28 h-[78vh] overflow-auto no-scrollbar rounded-3xl mt-4 w-11/12 shadow-[2px_2px_20px_rgba(0,0,0,0.15)]">
             <div className="h-[65vh] w-1/3 shadow-[0px_0px_10px_rgba(0,0,0,0.15)] rounded-xl overflow-hidden">
               {customer.length > 0 ? (
@@ -149,10 +139,7 @@ const Read = () => {
                     </tr>
                   </table>
                   </div>
-
-                  {/* <button className="edit-btn" onClick={goToUpdate}>
-                    📝
-                  </button> */}
+                  
                   <button
                     className="delete-btn w-full h-14 bg-cyan-700 transition duration-200 ease-in-out text-white font-semibold hover:bg-red-400"
                     onClick={deleteCustomer}

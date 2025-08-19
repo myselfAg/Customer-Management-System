@@ -38,7 +38,7 @@ app.post("/login", (req, res) => {
   });
 });
 
-// +++++++++++++++++++ Insert data into the database (Create.js) ++++++++++++++++++++++
+// +++++++++++++++++++ Add Customer ++++++++++++++++++++++
 app.post("/customer", (req, res) => {
   fetch("http://localhost:8081/")
     .then((data) => {
@@ -58,11 +58,12 @@ app.post("/customer", (req, res) => {
     });
 });
 
+// ++++++++++++++++++++++++++++ Sign Up ++++++++++++++++++++++++++++++++++++
 app.post("/signup", (req, res) => {
-      const sql = "INSERT INTO signup (username, password) VALUES(?)";
-      const values = [req.body.username, req.body.password];
+      const sql = "INSERT INTO signup (firstname, lastname, email, mob, username, password) VALUES (?, ?, ?, ?, ?, ?)";
+      const values = [req.body.firstname, req.body.lastname, req.body.email, req.body.mob, req.body.username, req.body.password];
 
-      db.query(sql, [values], (err, result) => {
+      db.query(sql, values, (err, result) => {
         if (err) return res.json(err);
         return res.json(result);
       });
