@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <div className="h-full w-full">
       <header className="bg-cyan-700 h-[8vh] flex justify-between items-center px-10 text-white shadow-xl ">
-        <h2 className="text-2xl font-bold">AgServices</h2>
+        <h2 className="text-2xl font-bold">AgCMS</h2>
         <ul className="flex gap-24 text-sm font-semibold">
           <li className="hover:opacity-20">
             <Link to={`/`}>Home</Link>
@@ -29,7 +29,7 @@ export default function Home() {
           </div>
         </div>
         <div className="h-full w-[50vw] flex flex-col justify-center gap-4">
-          <h1 className="text-5xl font-bold tracking-[1vw]">AgServices</h1>
+          <h1 className="text-5xl font-bold tracking-[1vw]">AgCMS</h1>
           <p className="font-semibold">
             Manage your customers, track interactions, and grow your
             business—all in one place. Our Customer Management System (CMS)

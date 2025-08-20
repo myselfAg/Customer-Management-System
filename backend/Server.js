@@ -13,7 +13,7 @@ const db = mysql.createConnection({
 });
 
 app.get("/", (req, res) => {
-  const sql = "select * from customer order by sl desc";
+  const sql = "SELECT * FROM customer ORDER BY sl DESC";
 
   db.query(sql, (err, data) => {
     if (err) return res.json("Error");
@@ -22,7 +22,7 @@ app.get("/", (req, res) => {
 });
 
 app.post("/login", (req, res) => {
-  const sql = "select * from signup where username = ? AND password = ?";
+  const sql = "SELECT * FROM signup WHERE username = ? AND password = ?";
   const values = [req.body.username, req.body.password];
   db.query(sql, values, (err, data) => {
     if (err) return res.status(500).json({ error: "Database error" });
@@ -84,7 +84,7 @@ app.post("/signup", (req, res) => {
 });
 
 app.get("/read/:sl", (req, res) => {
-  const sql = "select * from customer where sl = ?";
+  const sql = "SELECT * FROM customer WHERE sl = ?";
   const sl = req.params.sl;
 
   db.query(sql, [sl], (err, data) => {
@@ -97,15 +97,11 @@ app.put("/read/:sl", (req, res) => {
   const sl = req.params.sl;
   let values = { ...req.body };
 
-  if (values.date) {
-    const d = new Date(values.date);
-    values.date = d.toISOString().slice(0, 19).replace("T", " ");
-  }
+   delete values.date;
 
   const sql = "UPDATE customer SET ? WHERE sl = ?";
   db.query(sql, [values, sl], (err, result) => {
     if (err) {
-      console.error(err);
       return res.status(500).json({ error: "Database update failed" });
     }
     res.json({ message: "Record updated successfully", result });
@@ -114,7 +110,7 @@ app.put("/read/:sl", (req, res) => {
 
 app.delete("/read/:sl", (req, res) => {
   const sl = req.params.sl;
-  const sql = "delete from customer where sl = ?";
+  const sql = "DELETE FROM customer WHERE sl = ?";
 
   db.query(sql, [sl], (err, result) => {
     if (err) {

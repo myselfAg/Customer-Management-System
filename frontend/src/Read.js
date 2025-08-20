@@ -82,7 +82,7 @@ const Read = () => {
     <>
       <div className=" h-screen w-screen bg-zinc-50 flex">
         <div className="nav h-screen w-2/12 bg-cyan-600 flex flex-col pt-2">
-          <h1 className="font-bold text-3xl text-slate-200 pl-7">AgServices</h1>
+          <h1 className="font-bold text-3xl text-slate-200 pl-16">AgCMS</h1>
           <div className="w-full pl-6 mt-14">
             <ul className="text-slate-300 w-3/4 font-semibold">
               <li
@@ -266,6 +266,9 @@ const Read = () => {
                       })
                     }
                   />
+                    
+                    
+      
                 </div>
               </form>
             </div>

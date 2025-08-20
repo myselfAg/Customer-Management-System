@@ -40,7 +40,7 @@ export default function Customer() {
   return (
     <div className=" h-screen w-screen bg-zinc-50 flex">
       <div className="nav h-screen w-2/12 bg-cyan-600 flex flex-col pt-2">
-        <h1 className="font-bold text-3xl text-slate-200 pl-7">AgServices</h1>
+        <h1 className="font-bold text-3xl text-slate-200 pl-16">AgCMS</h1>
         <div className="w-full pl-6 mt-14">
           <ul className="text-slate-300 w-3/4 font-semibold">
             <li
@@ -83,14 +83,9 @@ export default function Customer() {
             Add
           </button>
         </div>
-        <div className="searchSec h-24 w-11/12 bg-white shadow-[0_4px_10px_rgba(0,0,0,0.15)] rounded-2xl mt-4 flex items-center ">
-          <div className="w-1/2 flex flex-col gap-2 ml-6">
-            <p className="font-bold">What Are You Looking For?</p>
-            <input
-              type="text"
-              placeholder="Search"
-              className="h-8 w-3/4 bg-zinc-100 rounded-md pl-4"
-            />
+        <div className="h-24 w-11/12 bg-white shadow-[0_4px_10px_rgba(0,0,0,0.15)] rounded-2xl mt-4 flex items-center ">
+          <div className="w-full flex items-center ml-10">
+          <h2 className="text-2xl font-bold">Managa Your Customers</h2>
           </div>
         </div>
         <div className="bg-white flex justify-center h-[61vh] overflow-auto no-scrollbar rounded-3xl mt-8 w-11/12 shadow-[2px_2px_20px_rgba(0,0,0,0.15)]">
