@@ -21,12 +21,20 @@ export default function Home() {
       <main className="h-[92vh] w-screen flex">
         <div className="h-full w-[50vw] flex justify-center items-center">
           <div className="h-2/3 w-3/4 bg-slate-200">
-          <img src={home} alt="cover" className="h-full w-full object-cover  " />
+            <img
+              src={home}
+              alt="cover"
+              className="h-full w-full object-cover  "
+            />
           </div>
         </div>
         <div className="h-full w-[50vw] flex flex-col justify-center gap-4">
           <h1 className="text-5xl font-bold tracking-[1vw]">AgServices</h1>
-          <p className="font-semibold">Manage your customers, track interactions, and grow your business—all in one place. Our Customer Management System (CMS) gives you the tools to organize client information, streamline communication, and build stronger relationships with ease.</p>
+          <p className="font-semibold">
+            Manage your customers, track interactions, and grow your
+            business—all in one place. Our Customer Management System (CMS)
+            gives you the tools to organize customer information.
+          </p>
         </div>
       </main>
     </div>

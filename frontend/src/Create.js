@@ -1,11 +1,15 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import dp from "./images/b.jpg";
 function Create() {
   const [values, setValues] = useState({
     name: "",
+    productid: "",
     amount: 0,
+    country: "",
+    city: "",
+    contact: "",
   });
   const navigate = useNavigate();
   const handleSubmit = (e) => {
@@ -45,9 +49,6 @@ function Create() {
             >
               Customer
             </li>
-            <li className="mb-8 py-1 pl-4 rounded-lg transition duration-300 ease-in-out hover:text-slate-500 hover:opacity-30 hover:bg-white bg-gradient-to-l from-transparent via-white/30 cursor-pointer">
-              Works
-            </li>
             <li
               onClick={goToLogin}
               className="mb-8 py-1 pl-4 rounded-lg transition duration-300 ease-in-out hover:text-slate-500 hover:opacity-30 hover:bg-white bg-gradient-to-l from-transparent via-white/30 cursor-pointer"
@@ -64,7 +65,6 @@ function Create() {
             <div className="h-8 w-8 rounded-full overflow-hidden">
               <img src={dp} alt="Profile Pic" className="object-cover" />
             </div>
-            <p>agneesh@gmail.com</p>
           </div>
         </div>
 
@@ -77,32 +77,64 @@ function Create() {
             Add
           </button>
         </div>
-        
+
         <div className="bg-white flex justify-center items-center gap-28 h-[78vh] overflow-auto no-scrollbar rounded-3xl mt-4 w-11/12 shadow-[2px_2px_20px_rgba(0,0,0,0.15)]">
+          <form className="h-[78vh] w-full">
+            <div className="mb-2 h-[78vh] w-full flex flex-col justify-center items-center gap-4">
+              <h2 className="text-2xl font-bold mb-6">Add Customer</h2>
+              <input
+                type="text"
+                placeholder="Enter Name"
+                className="form-control border-2 h-14 w-2/3 pl-4"
+                name="name"
+                onChange={(e) => setValues({ ...values, name: e.target.value })}
+              />
+              <input
+                type="text"
+                placeholder="Enter Product Id"
+                className="form-control border-2 h-14 w-2/3 pl-4"
+                name="productid"
+                onChange={(e) =>
+                  setValues({ ...values, productid: e.target.value })
+                }
+              />
+              <input
+                type="text"
+                placeholder="Enter Amount"
+                className="form-control border-2 h-14 w-2/3 pl-4"
+                name="amount"
+                onChange={(e) =>
+                  setValues({ ...values, amount: e.target.value })
+                }
+              />
+              <input
+                type="text"
+                placeholder="Enter Country"
+                className="form-control border-2 h-14 w-2/3 pl-4"
+                name="country"
+                onChange={(e) =>
+                  setValues({ ...values, country: e.target.value })
+                }
+              />
+              <input
+                type="text"
+                placeholder="Enter City"
+                className="form-control border-2 h-14 w-2/3 pl-4"
+                name="city"
+                onChange={(e) => setValues({ ...values, city: e.target.value })}
+              />
 
-            <form className="">
-              <div className="mb-2">
-                <input
-                  type="text"
-                  placeholder="Enter Name"
-                  className="form-control border-2 h-14 w-2/3 pl-4"
-                  name="name"
-                  onChange={(e) =>
-                    setValues({ ...values, name: e.target.value })
-                  }
-                />
-
-                <input
-                  type="text"
-                  placeholder="Enter Amount"
-                  className="form-control border-2 h-14 w-2/3 pl-4"
-                  name="amount"
-                  onChange={(e) =>
-                    setValues({ ...values, amount: e.target.value })
-                  }
-                />
-              </div>
-            </form>
+              <input
+                type="text"
+                placeholder="Enter Contact Number"
+                className="form-control border-2 h-14 w-2/3 pl-4"
+                name="contact"
+                onChange={(e) =>
+                  setValues({ ...values, contact: e.target.value })
+                }
+              />
+            </div>
+          </form>
         </div>
       </div>
     </div>

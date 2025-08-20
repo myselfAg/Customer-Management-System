@@ -1,4 +1,3 @@
-import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -20,6 +19,15 @@ export default function Customer() {
   };
   const goToLogin = () => {
     navigate("/login");
+  };
+
+  const toTitleCase = (str) => {
+    if (!str) return "";
+    return str
+      .toLowerCase()
+      .split(" ")
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(" ");
   };
 
   useEffect(() => {
@@ -47,9 +55,6 @@ export default function Customer() {
             >
               Customer
             </li>
-            <li className="mb-8 py-1 pl-4 rounded-lg transition duration-300 ease-in-out hover:text-slate-500 hover:opacity-30 hover:bg-white bg-gradient-to-l from-transparent via-white/30 cursor-pointer">
-              Works
-            </li>
             <li
               onClick={goToLogin}
               className="mb-8 py-1 pl-4 rounded-lg transition duration-300 ease-in-out hover:text-slate-500 hover:opacity-30 hover:bg-white bg-gradient-to-l from-transparent via-white/30 cursor-pointer"
@@ -66,7 +71,6 @@ export default function Customer() {
             <div className="h-8 w-8 rounded-full overflow-hidden">
               <img src={dp} alt="Profile Pic" className="object-cover" />
             </div>
-            <p>agneesh@gmail.com</p>
           </div>
         </div>
 
@@ -94,10 +98,14 @@ export default function Customer() {
             <table className="table-fixed text-center w-full">
               <thead className="">
                 <tr className="border-b-2 h-16 bg-slate-100">
-                  <th>Customer ID</th>
+                  <th>Serial No.</th>
+                  <th>Product Id</th>
                   <th>Name</th>
                   <th>Amount</th>
-                  {/* <th>Actions</th> */}
+                  <th>Country</th>
+                  <th>City</th>
+                  <th>Contact</th>
+                  <th>Date</th>
                   <th>View Customer</th>
                 </tr>
               </thead>
@@ -108,15 +116,17 @@ export default function Customer() {
                     key={index}
                     className="border-b-2 h-14 hover:shadow-[0_0_8px_rgba(0,0,0,0.15)]"
                   >
-                    {/* onClick={() => goToView(item.id)} */}
-                    <td className="">{item.id}</td>
-                    <td>{item.name}</td>
+                    <td>{item.sl}</td>
+                    <td>{item.productid}</td>
+                    <td>{toTitleCase(item.name)}</td>
                     <td>{item.amount}</td>
-                    {/* <td> <button className="edit-btn">📝</button>
-                    <button className="delete-btn">❌</button></td> */}
+                    <td>{toTitleCase(item.country)}</td>
+                    <td>{toTitleCase(item.city)}</td>
+                    <td>{item.contact}</td>
+                    <td>{item.date.split("T")[0]}</td>
                     <td className="btns">
                       <Link
-                        to={`/read/${item.id}`}
+                        to={`/read/${item.sl}`}
                         className=" px-4 py-1 rounded-lg shadow-md transition duration-500 ease-in-out hover:bg-cyan-600 hover:text-white "
                       >
                         View →
