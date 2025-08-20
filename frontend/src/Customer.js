@@ -35,7 +35,7 @@ export default function Customer() {
       .get("http://localhost:8081/")
       .then((res) => setData(res.data))
       .catch((err) => console.log(err));
-  }, []);
+  }, [data]);
 
   return (
     <div className=" h-screen w-screen bg-zinc-50 flex">

@@ -62,6 +62,7 @@ const Read = () => {
       .put(`http://localhost:8081/read/${sl}`, updateCustomer)
       .then((res) => {
         console.log(res);
+        alert("Customer Details Updated Successfully");
         navigate("/customer");
       })
       .catch((err) => console.log(err));
