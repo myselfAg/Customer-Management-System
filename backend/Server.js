@@ -21,20 +21,6 @@ app.get("/", (req, res) => {
   });
 });
 
-app.post("/login", (req, res) => {
-  const sql = "SELECT * FROM signup WHERE username = ? AND password = ?";
-  const values = [req.body.username, req.body.password];
-  db.query(sql, values, (err, data) => {
-    if (err) return res.status(500).json({ error: "Database error" });
-
-    if (data.length > 0) {
-      res.json({ success: true, user: data[0] });
-    } else {
-      res.json({ success: false, message: "Invalid username or password" });
-    }
-  });
-});
-
 app.post("/customer", (req, res) => {
   fetch("http://localhost:8081/")
     .then((data) => {
@@ -79,7 +65,21 @@ app.post("/signup", (req, res) => {
 
   db.query(sql, values, (err, result) => {
     if (err) return res.json(err);
-    return res.json(result);
+    return res.json("Account Created");
+  });
+});
+
+app.post("/login", (req, res) => {
+  const sql = "SELECT * FROM signup WHERE username = ? AND password = ?";
+  const values = [req.body.username, req.body.password];
+  db.query(sql, values, (err, data) => {
+    if (err) return res.status(500).json({ error: "Database error" });
+
+    if (data.length > 0) {
+      res.json({ success: true, user: data[0] });
+    } else {
+      res.json({ success: false, message: "Invalid username or password" });
+    }
   });
 });
 
